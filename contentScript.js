@@ -1,9 +1,12 @@
+console.log('loading youtube Ad skipper')
+
 const observer = new MutationObserver(handleMainParentElementChange);
 const observerConfig = { attributes: true, childList: true, subtree: true }
 
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.type === 'changeUrl') {
+      console.log('change url')
       main()
     }
     return true
@@ -14,6 +17,7 @@ async function waitPageReady () {
   while (true) {
     const parentElement = document.querySelector('#container div.video-ads')
     if (parentElement) {
+      console.log('page ready', parentElement)
       return parentElement
     }
     await sleep(500)
@@ -41,9 +45,10 @@ function clickSkipButton () {
 
   if (buttonElement) {
     buttonElement.click()
-    console.log('add skiped')
+    console.log('ad skiped')
     return true
   }
+  console.log('no ad')
   return false
 }
 
