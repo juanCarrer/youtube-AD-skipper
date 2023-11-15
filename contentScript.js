@@ -41,8 +41,16 @@ async function main () {
 }
 
 function clickSkipButton () {
-  const buttonElement = document.querySelector('#container div.video-ads button.ytp-ad-skip-button')
-
+  let buttonElement = null
+  
+  buttonElement = document.querySelector('#container div.video-ads button.ytp-ad-skip-button-modern')
+  if (!buttonElement) {
+    // si no encuentra el boton modern
+    console.log('modern no encontrado')
+    buttonElement = document.querySelector('#container div.video-ads button.ytp-ad-skip-button')
+  }
+  console.log('button Element', buttonElement)
+  
   if (buttonElement) {
     buttonElement.click()
     console.log('ad skiped')
@@ -66,3 +74,7 @@ main()
 //     skipAddButton.click()
 //   }
 // }, 1000)
+
+
+
+// nuevo elemento <button class="ytp-ad-skip-button-modern ytp-button"><div class="ytp-ad-text ytp-ad-skip-button-text-centered ytp-ad-skip-button-text" id="ad-text:h" style="">Omitir</div><span class="ytp-ad-skip-button-icon-modern"><svg height="100%" viewBox="-6 -6 36 36" width="100%"><path d="M5,18l10-6L5,6V18L5,18z M19,6h-2v12h2V6z" fill="#fff"></path></svg></span></button>
