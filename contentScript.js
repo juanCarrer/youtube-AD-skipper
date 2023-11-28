@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener(
 
 async function waitPageReady () {
   while (true) {
-    const parentElement = document.querySelector('#container div.video-ads')
+    const parentElement = document.querySelector('#columns #container div.video-ads')
     if (parentElement) {
       console.log('page ready', parentElement)
       return parentElement
@@ -25,6 +25,7 @@ async function waitPageReady () {
 }
 
 function handleMainParentElementChange (mutationList, observer) {
+  console.log('contenedor modificado', mutationList)
   clickSkipButton()
 }
 
@@ -44,6 +45,7 @@ function clickSkipButton () {
   let buttonElement = null
   
   buttonElement = document.querySelector('#container div.video-ads button.ytp-ad-skip-button-modern')
+
   if (!buttonElement) {
     // si no encuentra el boton modern
     console.log('modern no encontrado')
