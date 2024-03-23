@@ -1,7 +1,7 @@
 {
-  "name": "youtube AD skipper",
-  "description": "Extension for automatically skip YouTube ads",
-  "version": "0.0.1",
+  "name": "Youtube AD skipper",
+  "description": "Tired of wasting time with tedious YouTube ads? This extension is for you! Youtube AD skipper lets you enjoy your favorite videos without interruptions, automatically skipping Ads",
+  "version": "1.0.0",
   "manifest_version": 3,
   "content_scripts": [
     {
